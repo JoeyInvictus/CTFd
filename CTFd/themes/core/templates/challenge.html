@@ -104,7 +104,19 @@
 							</div>
 						</div>
 						{% endif %}
+						
+						{% if solved_flag %}
+						<div class="row text-center solved-flag-row mb-3">
+							<div class="col-md-12">
+								<div class="alert alert-success">
+									<strong>Challenge Solved!</strong><br>
+									<small>Flag: </small> <code>{{ solved_flag }}</code>
+								</div>
+							</div>
+						</div>
+						{% endif %}
 
+						{% if not solved_flag %}
 						<div class="row submit-row">
 							<div class="col-md-9 form-group">
 								{% block input %}
@@ -129,6 +141,7 @@
 								</div>
 							</div>
 						</div>
+						{% endif %}
 					</div>
 
 					<div role="tabpanel" class="tab-pane fade" id="solves">
