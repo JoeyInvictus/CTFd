@@ -437,6 +437,13 @@ class Challenge(Resource):
         response["tags"] = tags
         response["hints"] = hints
 
+        solved_flag = None
+        if solved_by_user:
+            flag = Flags.query.filter_by(challenge_id=chal.id).first()
+            solved_flag = flag.content if flag else None
+        
+        response["solved_flag"] = solved_flag
+
         response["view"] = render_template(
             chal_class.templates["view"].lstrip("/"),
             solves=solve_count,
@@ -447,6 +454,7 @@ class Challenge(Resource):
             max_attempts=chal.max_attempts,
             attempts=attempts,
             challenge=chal,
+            solved_flag=solved_flag
         )
 
         db.session.close()
