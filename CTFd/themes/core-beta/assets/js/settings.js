@@ -1,5 +1,3 @@
-console.log('CORE-BETA Alpine settings.js loaded - BillingForm should be available');
-
 import Alpine from "alpinejs";
 import { Modal } from "bootstrap";
 import { serializeJSON } from "@ctfdio/ctfd-js/forms";
