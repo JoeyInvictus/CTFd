@@ -187,7 +187,7 @@ class Challenges(db.Model):
         if hasattr(self, 'topics') and self.topics:
             for topic_rel in self.topics:
                 topic_value = topic_rel.topic.value if hasattr(topic_rel, 'topic') else str(topic_rel)
-                
+
                 # Check for subscription tags
                 if topic_value.lower() == "freemium":
                     return "freemium"
@@ -200,14 +200,14 @@ class Challenges(db.Model):
                 elif topic_value.startswith("subscription_required:"):
                     result = topic_value.split(":")[1]
                     return result
-        
+
         # Check direct field (but only if no topics override it)
         if hasattr(self, 'subscription_required') and self.subscription_required:
             return self.subscription_required
-        
+
         # Default fallback
         return "premium"
-    
+
     def __init__(self, *args, **kwargs):
         super(Challenges, self).__init__(**kwargs)
 
