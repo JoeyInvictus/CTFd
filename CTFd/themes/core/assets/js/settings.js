@@ -51,7 +51,7 @@ Alpine.data("SettingsForm", () => ({
       this.success = false;
       this.error = true;
 
-      Object.keys(response.errors).map(error => {
+      Object.keys(response.errors).map((error) => {
         const error_msg = response.errors[error];
         this.errors.push(error_msg);
       });
@@ -99,17 +99,18 @@ Alpine.data("Tokens", () => ({
 
 Alpine.data("BillingForm", () => ({
   loading: false,
-  
+
   async manageBilling() {
     this.loading = true;
     try {
       // Direct link to your Stripe billing portal
-      window.location.href = "https://billing.stripe.com/p/login/14k4hX9Oh4Fr2lO3cc";
+      window.location.href =
+        "https://billing.stripe.com/p/login/14k4hX9Oh4Fr2lO3cc";
     } catch (error) {
-      console.error('Billing management error:', error);
+      console.error("Billing management error:", error);
       this.loading = false;
     }
-  }
+  },
 }));
 
 Alpine.start();
