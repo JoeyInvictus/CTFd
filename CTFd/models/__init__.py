@@ -121,7 +121,7 @@ class Challenges(db.Model):
     category = db.Column(db.String(80))
     type = db.Column(db.String(80))
     state = db.Column(db.String(80), nullable=False, default="visible")
-    logic = db.Column(db.String(80), nullable=False, default="any")
+    logic = db.Column(db.String(80), nullable=False, server_default="any", default="any")
     initial = db.Column(db.Integer, nullable=True)
     minimum = db.Column(db.Integer, nullable=True)
     decay = db.Column(db.Integer, nullable=True)
